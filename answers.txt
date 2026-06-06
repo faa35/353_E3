@@ -1,0 +1,9 @@
+1. for cpu temperature smoothing, I think LOESS gave the better result. 
+In the graph the LOESS smoothed line is smoother and easier to interpret. It removes many small random jumps in the temperature. it also included the large temperature increase in the middle.
+Kalman smoothing followed the measured data more closely. So it kept more of the smaller spikes. This made it a noisier than the LOESS. Kalman was useful because it used extra information(CPU usage, system load, fan RPM). 
+
+2. The accelerometer and gyroscope data could have been used to make a better prediction for the next latitude and longitude. 
+The accelerometer shows movement in the x, y, z. So, it could find whether the person is speeding up, slowing down. it can also check if continuing at a steady pace.
+gyroscope shows turning or rotation. so it could help estimate when the person changes direction.
+Using these sensors the Kalman filter could make a better prediction for the next GPS point.it didn't have to only depending on the previous latitude and longitude.
+like, if the gyroscope shows a person is turning and the accelerometer shows forward movement, model can predict a turn in the GPS track. 
